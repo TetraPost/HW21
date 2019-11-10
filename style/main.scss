@@ -1,0 +1,64 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+body {
+    margin: 0 auto;
+}
+@mixin forcontentstyle{
+	border: 1px solid #cecece;
+	border-radius: 20px;
+	padding: 10px;
+	text-align: justify;
+}
+/*************************************/
+.wrapper {
+	min-height: 100vh;
+	display: grid;
+	width: 100%;
+	grid-gap: 50px;	
+	grid-template-columns: repeat (6, 1fr);
+	grid-template-rows: repeat (2, 1fr);
+	grid-template-areas:
+	". . content content . ."
+	". footer footer footer footer .";
+
+}
+/*Content*/
+.content {
+	grid-area: content;
+	width: 100%;
+	margin-top: 20px;
+	@include forcontentstyle();
+}
+
+/*Footer*/
+.footer {
+	grid-area: footer;
+	display: grid;
+	width: 100%;
+	min-height: 600px;
+	grid-gap: 5px;
+	margin-bottom: 20px;	
+	grid-template-columns: repeat (2, 1fr);
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas:
+	"left"
+	"right";
+}
+.left {
+	grid-area: left;
+	@include forcontentstyle();
+	background: url(../img/1.jpg) no-repeat;
+	background-size: 100%;
+	
+}
+.right {
+	grid-area: right;
+	@include forcontentstyle();
+	background: url(../img/2.jpg) no-repeat;
+	background-size: 100%;
+}
+
+
+
+
